@@ -5,14 +5,11 @@ describe('TC_003_Product?Detail', () => {
     cy.visit('https://demoblaze.com/index.html')
 
     cy.get('.hrefch').contains('Samsung galaxy s7').click()
-
-    cy.get('#logInModal').should('be.visible')
-    cy.wait(2000)
-    cy.get('#loginusername').type('test',{force:true})
-    cy.get('#loginpassword').type('test',{force:true})
-    cy.contains('button', 'Log in').click()
-    cy.wait(2000)
-    cy.get('#nameofuser').should('contain','Welcome test')
+    cy.get('.product-deatil').should('be.visible')
+    cy.get('h2.name').contains('Samsung galaxy s7').should('be.visible')
+    cy.get('h3.price-container').should('contain','$800')
+    cy.get('.btn-lg').should('contain','Add to cart')
+    
 
   })
 })
